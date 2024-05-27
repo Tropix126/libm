@@ -54,6 +54,11 @@ pub fn _eq(a: f64, b: f64) -> Result<(), u64> {
     }
 }
 
+#[panic_handler]
+fn panic(_info: &core::panic::PanicInfo) -> ! {
+    loop {}
+}
+
 // PowerPC tests are failing on LLVM 13: https://github.com/rust-lang/rust/issues/88520
 #[cfg(not(target_arch = "powerpc64"))]
 #[cfg(all(test, feature = "musl-reference-tests"))]

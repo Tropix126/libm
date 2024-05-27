@@ -38,3 +38,7 @@ rand = { version = "0.6.5", optional = true }
 # This is needed for no-panic to correctly detect the lack of panics
 [profile.release]
 lto = "fat"
+panic = "abort"
+
+[lib]
+crate-type = ["staticlib"]
