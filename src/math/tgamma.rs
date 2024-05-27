@@ -130,7 +130,7 @@ fn s(x: f64) -> f64 {
 }
 
 #[cfg_attr(all(test, assert_no_panic), no_panic::no_panic)]
-pub fn tgamma(mut x: f64) -> f64 {
+#[no_mangle] pub extern "C" fn tgamma(mut x: f64) -> f64 {
     let u: u64 = x.to_bits();
     let absx: f64;
     let mut y: f64;

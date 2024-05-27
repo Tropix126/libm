@@ -220,7 +220,7 @@ fn erfc2(ix: u32, mut x: f64) -> f64 {
 /// the probability that an observation will fall within x standard
 /// deviations of the mean (assuming a normal distribution).
 #[cfg_attr(all(test, assert_no_panic), no_panic::no_panic)]
-pub fn erf(x: f64) -> f64 {
+#[no_mangle] pub extern "C" fn erf(x: f64) -> f64 {
     let r: f64;
     let s: f64;
     let z: f64;
@@ -269,7 +269,7 @@ pub fn erf(x: f64) -> f64 {
 /// Is `1 - erf(x)`. Is computed directly, so that you can use it to avoid
 /// the loss of precision that would result from subtracting
 /// large probabilities (on large `x`) from 1.
-pub fn erfc(x: f64) -> f64 {
+#[no_mangle] pub extern "C" fn erfc(x: f64) -> f64 {
     let r: f64;
     let s: f64;
     let z: f64;
